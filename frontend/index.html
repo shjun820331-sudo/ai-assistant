@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>서울 기온 AI 비서</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>서울 기온 AI 비서</h1>
+    <p class="sub">내 데이터를 아는 AI에게 서울 월평균 기온을 물어보세요.</p>
+  </header>
+
+  <main>
+    <!-- 데이터 요약: AI에게 그대로 전달되는 정보 -->
+    <section class="summary" aria-label="데이터 요약">
+      <div class="stat"><span class="label">기간</span><strong id="sum-period">–</strong></div>
+      <div class="stat"><span class="label">개수</span><strong id="sum-count">–</strong></div>
+      <div class="stat"><span class="label">평균</span><strong id="sum-average">–</strong></div>
+      <div class="stat"><span class="label">최고</span><strong id="sum-max">–</strong></div>
+      <div class="stat"><span class="label">최저</span><strong id="sum-min">–</strong></div>
+      <div class="stat wide"><span class="label">최근 추세</span><strong id="sum-trend">–</strong></div>
+    </section>
+
+    <p id="notice" class="notice" hidden></p>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="chat" role="tab">채팅</button>
+      <button class="tab" data-tab="data" role="tab">데이터 관리</button>
+      <button class="tab" data-tab="history" role="tab">대화 기록</button>
+    </nav>
+
+    <!-- 채팅 -->
+    <section id="tab-chat" class="panel">
+      <div class="panel-head">
+        <h2 id="chat-title">새 대화</h2>
+        <button id="new-chat" class="ghost" type="button">새 대화 시작</button>
+      </div>
+      <div id="messages" class="messages" aria-live="polite"></div>
+      <form id="chat-form" class="chat-form">
+        <input id="chat-input" type="text" maxlength="1000" autocomplete="off"
+               placeholder="예: 가장 더웠던 달은 언제야?" required>
+        <button type="submit">보내기</button>
+      </form>
+    </section>
+
+    <!-- 데이터 관리 -->
+    <section id="tab-data" class="panel" hidden>
+      <div class="panel-head"><h2 id="data-form-title">새 데이터 추가</h2></div>
+      <form id="data-form" class="data-form">
+        <label>날짜 <input id="data-date" type="date" required></label>
+        <label>기온(℃) <input id="data-value" type="number" step="0.01" min="-90" max="60" required></label>
+        <label class="grow">메모 <input id="data-memo" type="text" maxlength="200" placeholder="선택"></label>
+        <button id="data-submit" type="submit">추가</button>
+        <button id="data-cancel" class="ghost" type="button" hidden>취소</button>
+      </form>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>날짜</th><th>기온(℃)</th><th>메모</th><th></th></tr></thead>
+          <tbody id="data-rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 대화 기록 -->
+    <section id="tab-history" class="panel" hidden>
+      <div class="panel-head"><h2>이전 대화</h2></div>
+      <ul id="history-list" class="history"></ul>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
