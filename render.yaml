@@ -14,9 +14,8 @@ services:
         value: 3.13.15
       - key: GEMINI_MODEL
         value: gemini-3.5-flash
-      # 프론트엔드를 배포한 뒤 Vercel 주소를 쉼표로 이어 붙인다.
       - key: ALLOWED_ORIGINS
-        value: http://localhost:5500
+        value: https://ai-assistant-frontend-mauve.vercel.app,http://localhost:5500
       # 아래 두 값은 비밀이라 Render 화면에서 직접 입력한다.
       - key: GEMINI_API_KEY
         sync: false

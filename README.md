@@ -6,9 +6,9 @@
 
 | | 주소 |
 |---|---|
-| 프론트엔드 (Vercel) | 배포 후 추가 |
-| 백엔드 API (Render) | 배포 후 추가 |
-| Swagger UI | 배포 후 추가 (`/docs`) |
+| 프론트엔드 (Vercel) | https://ai-assistant-frontend-mauve.vercel.app |
+| 백엔드 API (Render) | https://ai-assistant-api-qc8n.onrender.com |
+| Swagger UI | https://ai-assistant-api-qc8n.onrender.com/docs |
 
 백엔드는 Render 무료 서버라 한동안 쓰지 않으면 잠듭니다. 첫 요청은 최대 1분쯤 걸릴 수 있고, 이때 화면에 "서버를 깨우는 중" 안내가 표시됩니다.
 
